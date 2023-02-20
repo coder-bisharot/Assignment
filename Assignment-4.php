@@ -1,14 +1,16 @@
 <?php
 //1.  Write a PHP function to sort an array of strings by their length, in ascending order. (Hint: You can use the usort() function to define a custom sorting function.)
 
-function sort_by_length($a, $b) {
-    return strlen($a) - strlen($b);
+function sortByLength($array) {
+    usort($array, function($a, $b) {
+        return strlen($a) - strlen($b);
+    });
+    return $array;
 }
+$array = array("apple", "banana", "cherry", "date", "elderberry");
+$sortedArray = sortByLength($array);
+print_r($sortedArray);
 
-$strings = array('apple', 'banana', 'cherry', 'date', 'pineapple', 'orange');
-
-usort($strings, 'sort_by_length');
-print_r($strings);
 
 //2. Write a PHP function to concatenate two strings, but with the second string starting from the end of the first string.
 
